@@ -1,5 +1,5 @@
 node_modules/ // importante para no subir las dependencias a github
 dist/ // importante para no subir el código transpilado a github
-.env/ //importante para no subir las variables de entorno a github
+.env //importante para no subir las variables de entorno a github
 *.log // importante para no subir los archivos de log a github
 .ds_store // importante para no subir los archivos de sistema a github
