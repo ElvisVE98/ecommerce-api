@@ -1,5 +1,6 @@
 import express from 'express';
-import { errorHandler } from './config/controllers/middlewares/errorhandler';
+import { errorHandler } from './middlewares/errorhandler';
+import productRoutes from './routes/products.routes';
 
 
 const app = express(); // aqui crea la aplicacion, es el servidor en si, es el objeto que se encarga de manejar las rutas, los middlewares, las peticiones y las respuestas, es el core de la aplicacion, es el que se encarga de recibir las peticiones y devolver las respuestas, es el que se encarga de manejar todo lo relacionado con el servidor, es el que se encarga de escuchar en un puerto y responder a las peticiones que llegan a ese puerto
@@ -10,6 +11,8 @@ app.get('/health', (req, res) => { //health es la URL que se utiliza para verifi
     res.json({success: true,message: ' server is running'});
 });
 
+
+app.use('/api/products', productRoutes);
 app.use(errorHandler); //esto es un middleware de manejo de errores, se encarga de capturar cualquier error que ocurra en las rutas y devolver una respuesta con el mensaje de error y el status code correspondiente
 
 export default app;
