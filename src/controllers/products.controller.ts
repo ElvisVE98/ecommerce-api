@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import * as productService from '../services/product.service';
 
+
 export const getAllProducts = async (
   req: Request,
   res: Response,
@@ -13,6 +14,9 @@ export const getAllProducts = async (
     next(error);
   }
 };
+
+
+
 
 export const getProductById = async (
   req: Request,
@@ -33,6 +37,9 @@ export const getProductById = async (
 };
 
 
+
+
+
 export const createProduct = async (
   req: Request,
   res: Response,
@@ -45,6 +52,9 @@ export const createProduct = async (
     next(error);
   }
 };
+
+
+
 
 export const updateProduct = async (
   req: Request,
@@ -63,6 +73,9 @@ export const updateProduct = async (
     next(error);
   }
 };
+
+
+
 
 export const deleteProduct = async (
   req: Request,

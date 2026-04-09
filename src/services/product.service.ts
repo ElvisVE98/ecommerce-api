@@ -6,6 +6,9 @@ export const getAllProducts = async (): Promise<Product[]> => {
     .from('products')
     .select('*');
 
+    console.log('Data retrieved from Supabase:', data); // Agrega este log para verificar los datos
+    console.log('Error retrieved from Supabase:', error); // Agrega este log para verificar los errores
+
   if (error) throw { statusCode: 500, message: error.message };
 
   return data as Product[];
