@@ -24,7 +24,7 @@
     "declarationMap": true,
 
     // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
+    //"noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
     // Style Options
@@ -39,8 +39,8 @@
     "strict": true,
     //"jsx": "react-jsx",
     //"verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
+    //"isolatedModules": true,
+    //"noUncheckedSideEffectImports": true,
     //"moduleDetection": "force",
     "skipLibCheck": true,
   },

@@ -8,7 +8,7 @@ console.log('SUPABASE_URL:', env.supabaseUrl);
 console.log('SUPABASE_KEY:', env.supabaseAnonKey);
 
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //esto es para evitar el error de certificado autofirmado, esto no es recomendable para producción, pero para desarrollo puede ser útil, esto hace que el cliente de supabase acepte certificados autofirmados, lo cual puede ser útil si estás utilizando un entorno de desarrollo local o si estás utilizando un proxy que utiliza un certificado autofirmado. Sin embargo, ten en cuenta que esto puede representar un riesgo de seguridad si se utiliza en un entorno de producción, ya que permite conexiones inseguras. Por lo tanto, es importante asegurarse de que esta configuración solo se utilice en entornos de desarrollo y no en producción.    
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //esto es para evitar el error de certificado autofirmado, esto no es recomendable para producción, pero para desarrollo puede ser útil, esto hace que el cliente de supabase acepte certificados autofirmados, lo cual puede ser útil si estás utilizando un entorno de desarrollo local o si estás utilizando un proxy que utiliza un certificado autofirmado. Sin embargo, ten en cuenta que esto puede representar un riesgo de seguridad si se utiliza en un entorno de producción, ya que permite conexiones inseguras. Por lo tanto, es importante asegurarse de que esta configuración solo se utilice en entornos de desarrollo y no en producción.    
 
 export const supabase = createClient(env.supabaseUrl, env.supabaseAnonKey);
 

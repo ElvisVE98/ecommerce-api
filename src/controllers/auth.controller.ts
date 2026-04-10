@@ -7,6 +7,7 @@ export const register = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    console.log('Body recibido en controller:', req.body);
     const data = await authService.register(req.body);
     res.status(201).json({ success: true, data });
   } catch (error) {
