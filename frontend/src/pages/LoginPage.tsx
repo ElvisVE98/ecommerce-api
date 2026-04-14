@@ -41,7 +41,7 @@ const LoginPage = () =>{
         //console.log('email:',email,'password:',password), // esto es para verificar que los valores de email y password se están actualizando correctamente a medida que el usuario escribe en los campos de entrada.
         
         <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center">
-            <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden fle">
+            <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden">
 
 
                  {/* Panel izquierdo */}
