@@ -1,5 +1,16 @@
+import Navbar from "./Navbar";
+
 const OrdersPage = () =>{
-    return<div> Orders page </div>
-}
+
+return(
+        <div>
+            <Navbar />
+            <main>
+                <h1>pedidos</h1>
+            </main>
+        </div>
+
+    );
+};
 
 export default OrdersPage;
