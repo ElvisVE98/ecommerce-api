@@ -1,12 +1,15 @@
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/FooterPage";
 
 const CartPage = () =>{
     return(
-        <div>
+        <div className='min-h-screen flex flex-col'>
             <Navbar />
-            <main>
-                <h1>carrito</h1>
+            <main className='flex-1'>
+                <h1>Catálogo</h1>
             </main>
+            <Footer />
+
         </div>
 
     );

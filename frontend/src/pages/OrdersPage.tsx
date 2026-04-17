@@ -1,13 +1,16 @@
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/FooterPage";
 
 const OrdersPage = () =>{
 
-return(
-        <div>
+    return(
+        <div className='min-h-screen flex flex-col'>
             <Navbar />
-            <main>
-                <h1>pedidos</h1>
+            <main className='flex-1'>
+                <h1>orderPages</h1>
             </main>
+            <Footer />
+
         </div>
 
     );

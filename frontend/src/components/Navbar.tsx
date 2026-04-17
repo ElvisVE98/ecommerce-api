@@ -27,7 +27,7 @@ const Navbar = () =>{
 
     return (
     <nav className="bg-white border-b border-gray-100 px-8 py-4 flex items-center justify-between shadow-sm sticky top-0 z-50">
-        <Link to="/catalog" className="text-xl font-bold text-slate-800 tracking-tight hover:text-blue-600 transition">Mercado Local</Link>
+        <Link to="/catalog" className="text-xl font-bold text-slate-800 tracking-tight hover:text-blue-700 transition">Mercado Local</Link>
 
         <div className="flex items-center gap-9">
             <Link to="/catalog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Catálogo </Link>
