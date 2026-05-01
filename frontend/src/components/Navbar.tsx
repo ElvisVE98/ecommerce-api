@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import { logout } from '../services/auth.service';
+import { useCart } from "../hooks/UseCart";
 
 
 
@@ -10,6 +11,9 @@ const Navbar = () =>{
 
     const navigate = useNavigate();
     const [user,setUser] = useState<{email : string} | null>(null);
+
+    const {totalItems} = useCart();
+    
 
     //useeffect sirve en siples palabras para ejecutar código después de que el componente se haya renderizado. En este caso, lo usamos para verificar si hay un usuario autenticado almacenado en el localStorage cada vez que el componente Navbar se monta o cuando cambia el estado del usuario. Si encontramos un usuario, actualizamos el estado del usuario con esa información.
     useEffect(()=>{
@@ -40,7 +44,7 @@ const Navbar = () =>{
                 <div className="flex items-center gap-4">
                     <span className="text-sm text-slate-600 font-medium">{user.email.split('@')[0]}</span>
                     <Link to="/cart" className="relative text-slate-600 hover:text-slate-900 transition">🛍️
-                    <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">{totalItems}</span>
                     </Link>
                     <button onClick={handleLogout} className="text-sm bg-slate-800 text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition ">Cerrar sesión</button>
                 </div>

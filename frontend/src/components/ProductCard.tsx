@@ -1,4 +1,5 @@
 import type {  Product }  from "../types/product.type";
+import { useCart } from "../hooks/UseCart";
 
 interface productCardProps {
 
@@ -6,7 +7,12 @@ interface productCardProps {
     categoryName : string
 }
 
+
+
+
 const ProductCard = ({product,categoryName}: productCardProps) =>{
+  
+const {addItem} = useCart();
 
 return (
 
@@ -56,7 +62,9 @@ return (
         </span>
 
 
-        <button className="bg-slate-800 text-white text-sm px-3 py-2 rounded-lg hover:bg-slate-700 transition">
+        <button 
+        onClick={()=> addItem(product)}
+        className="bg-slate-800 text-white text-sm px-3 py-2 rounded-lg hover:bg-slate-700 transition">
           Agregar
         </button>
 
