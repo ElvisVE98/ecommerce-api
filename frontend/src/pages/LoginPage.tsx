@@ -30,7 +30,7 @@ const LoginPage = () =>{
 
             //ir al catalogo de productos
         navigate('/catalog');    
-        }catch(error:any){
+        }catch(error){
             setError('Correo o contraseña incorrecta')
             console.error('Error al iniciar sesión:', error);
         }finally{
