@@ -206,6 +206,43 @@ const AboutPage = () => {
           </div>        
         </section>
 
+
+
+        <section className='py-20 bg-linear-to-br from-blue-800 to-purple-950'>
+          <div className='text-center mb-12 mx-auto max-w-4xl'>
+            <h2 className='uppercase'>Estadisticas</h2>
+          </div>
+
+          <div className='grid grid-cols-4 mx-auto max-w-4xl gap-8 px-8'>
+            
+            
+            <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
+              <span className='text-white font-bold mb-2 text-4xl'>8</span>
+              <p className='text-center text-white text-sm'>Endpoints API</p>              
+            </div>
+
+            <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
+              <span className='text-white font-bold mb-2 text-4xl'>5</span>
+              <p className='text-center text-white text-sm'>Tablas en BD</p>              
+            </div>
+
+            <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
+              <span className='text-white font-bold mb-2 text-4xl'>3</span>
+              <p className='text-center text-white text-sm'>Fases del Proyecto</p>              
+            </div>
+
+            <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
+              <span className='text-white font-bold mb-2 text-4xl'>15+</span>
+              <p className='text-center text-white text-sm'>Productos</p>              
+            </div>
+
+
+
+
+
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>
