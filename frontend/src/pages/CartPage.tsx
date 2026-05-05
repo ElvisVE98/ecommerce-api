@@ -82,12 +82,12 @@ const CartPage = () =>{
 
 
 
-            <div className="flex gap-8 items-start">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
                 {/*Columna izquierda - se visualizan los productos*/}
 
                 <div className="flex-1 flex flex-col gap-4">
                 {items.map((item) => (
-                    <div key={item.product.id} className="bg-white rounded-2xl p-4 flex gap-4 shadow-sm">
+                    <div key={item.product.id} className="bg-white rounded-2xl p-4 flex flex-col md:flex-row gap-4 shadow-sm">
 
 
 
@@ -153,7 +153,7 @@ const CartPage = () =>{
 {/*--------------------------------------------------------------------------------------------------*/}
 
             {/* Columna derecha — resumen */}
-            <div className="w-80 shrink-0 bg-white rounded-2xl shadow-sm p-6">
+            <div className="w-full md:w-80 md:shrink-0 bg-white rounded-2xl shadow-sm p-6">
                 <h2 className="text-lg font-bold text-slate-800 mb-4">Resumen del Pedido</h2>
 
 
@@ -171,7 +171,7 @@ const CartPage = () =>{
 
 
             {/*separador*/}
-            <div className="border-t border-slate-100 my-4">
+            <div className="border-t border-slate-100 my-4"></div> 
 
             {/* Total */}
             <div className="flex justify-between items-center mb-6">
@@ -202,7 +202,7 @@ const CartPage = () =>{
                     Compra protegida por Mercado Local. Transacciones seguras y encriptadas.
                 </p>
             </div>
-        </div>               
+                      
     </div>
 </div>         
     </main>

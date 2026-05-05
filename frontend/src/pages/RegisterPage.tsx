@@ -43,16 +43,10 @@ const RegisterPage = () =>{
         backgroundSize: '600% 300%',
         animation: 'gradientMove 8s ease infinite',
         }}>
-    <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden">
 
+    <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex flex-col md:flex-row overflow-hidden">
 
-
-        
-
-
-
-
-        <div className="w-1/2 p-10"> 
+        <div className="w-full md:w-1/2 p-10"> 
         <h1 className=" text-2xl font-bold text-slate-800 mb-1">Crear Cuenta</h1>
         <p className="text-slate-500 text-sm mb-8">Completa tus datos para comenzar tu experiencia</p>
 
@@ -101,12 +95,11 @@ const RegisterPage = () =>{
          </div>
 
         {/* Panel derecho */}
-    <div className="w-1/2 p-10 flex items-center  min-h-80"
+    <div className="hidden md:flex w-1/2 p-10 items-center  min-h-80"
                     style={{
                     background: 'linear-gradient(135deg, #000046,#1CB5E0)',
                     backgroundSize:'300% 300%',
-                    animation:'gradientMove 10s ease infinite',
-                    display:'flex',
+                    animation:'gradientMove 10s ease infinite',                   
                     alignItems:'center',
                     padding:'40px',
                 }}>

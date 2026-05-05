@@ -162,7 +162,7 @@ const AboutPage = () => {
           </div>
 
           {/*Columna izquierda con textos y iconos*/}
-          <div className='grid grid-cols-2 gap-12 max-w-7xl mx-auto px-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto px-8'>
             <div className='flex flex-col justify-center'>
 
               <h3 className='text-2xl font-semibold mb-4 '>¿Por qué este proyecto?</h3>
@@ -216,7 +216,7 @@ const AboutPage = () => {
           <p className='text-slate-500 text-sm mt-2'>El Stack utilizado para este Proyecto</p>
           </div>
 
-          <div className='tech-section max-w-4xl mx-auto grid grid-cols-4 gap-8 px-8'>
+          <div className='tech-section max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-8'>
             {/*aqui van los iconos*/}
             <div className='tech-icon flex flex-col items-center gap-2 opacity-0'>
               <SiReact size={48} className='text-cyan-400 grayscale hover:grayscale-0 duration-300 hover:scale-130 transition ' />
@@ -272,7 +272,7 @@ const AboutPage = () => {
             <p className='mt-4 text-slate-400 text-sm'>El proyecto en números</p>
           </div>
 
-          <div className='contador-section grid grid-cols-4 mx-auto max-w-4xl gap-8 px-8'>
+          <div className='contador-section grid grid-cols-2 md:grid-cols-4 mx-auto max-w-4xl gap-8 px-8'>
             
             
             <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>

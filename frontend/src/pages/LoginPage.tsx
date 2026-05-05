@@ -46,15 +46,14 @@ const LoginPage = () =>{
         backgroundSize: '600% 300%',
         animation: 'gradientMove 8s ease infinite',
         }}>
-            <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex flex-col md:flex-row overflow-hidden">
 
                  {/* Panel izquierdo */}
-                <div className="w-1/2 flex items-center min-h-80"
+                <div className="hidden md:flex w-1/2 p-10 items-center min-h-80"
                 style={{
                     background: 'linear-gradient(135deg, #000046,#1CB5E0)',
                     backgroundSize:'300% 300%',
-                    animation:'gradientMove 10s ease infinite',
-                    display:'flex',
+                    animation:'gradientMove 10s ease infinite',                    
                     alignItems:'center',
                     padding:'40px',
                 }}>
@@ -64,8 +63,8 @@ const LoginPage = () =>{
                     </div>
                 </div>
 
-
-                <div className="w-1/2 p-10">
+                {/* Panel derecho */}
+                <div className="w-full md:w-1/2 p-10">
                 <h1 className=" text-2xl font-bold text-slate-800 mb-1">
                     Bienvenido de Nuevo</h1>
                     <p className="text-slate-500 text-sm mb-8">
@@ -101,6 +100,15 @@ const LoginPage = () =>{
                     <button type="submit" disabled={loading} className="bg-slate-700 text-white rounded-lg py-3 font-semibold hover:bg-slate-800 transition disabled:opacity-50">
                         {loading ? ' Iniciando sesión...' : 'Iniciar sesión'}
                     </button>
+
+                    <div className=" bg-slate-500 border border-black/30 rounded-full px-3.5 py-2.5 text-center">
+                        <p className="text-xs text-white mb-1 shrink-0 uppercase font-bold">Credenciales de Prueba</p>
+                        <p className="text-xs text-white shrink-0">📧Email: admin@prueba.com</p>
+                        <p className="text-xs text-white shrink-0 mt-1">🔑Contraseña: admin</p>
+                    </div>
+
+
+
                         </form>
                         <p className="text-center text-sm text-slate-500 mt-2">¿Aun no tienes Cuenta? {''}
                             <Link to= "/register" className="text-blue-600 font-semibold hover:underline">Crear Cuenta</Link>

@@ -79,10 +79,10 @@ const OrdersPage = () => {
         <p className="text-slate-500 mb-8">Gestiona y revisa el estado de todas tus compras.</p>
 
         {/* Layout dos columnas — igual que el catálogo */}
-        <div className="flex gap-8 items-start">
+        <div className="flex flex-col md:flex-row gap-8 items-start">
 
           {/* Columna izquierda — resumen y filtros */}
-          <div className="w-56 shrink-0 flex flex-col gap-4">
+          <div className="w-full md:w-56 md:shrink-0 flex flex-col gap-4">
 
             {/* Resumen de actividad */}
             <div className="bg-white rounded-2xl p-4 shadow-sm">
@@ -155,7 +155,7 @@ const OrdersPage = () => {
             ) : (
               // map() recorre cada orden y crea una card
               filteredOrders.map(order => (
-                <div key={order.id} className="bg-white rounded-2xl p-5 shadow-sm flex items-center gap-4">
+                <div key={order.id} className="bg-white rounded-2xl p-5 shadow-sm flex flex-col md:flex-row items-center gap-4">
 
                   {/* Información de la orden */}
                   <div className="flex-1">

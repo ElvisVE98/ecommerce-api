@@ -60,10 +60,10 @@ if(loading){
 
             {/* Filtro por categoría - dos columnas */}
 
-            <div className='flex gap-8'>
+            <div className='flex flex-col md:flex-row gap-8'>
 
             {/* Columna izquierda — filtros */}
-                <div className='w-48 shrink-0'>
+                <div className='w-full md:w-48 md:shrink-0'>
                     <p className='text-xs font-semibold uppercase tracking-wide text-slate-500 mb-3'>Categorias</p>
 
                     <button
@@ -102,7 +102,7 @@ if(loading){
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className='w-full border border-slate-200 rounded-lg px-4 py-2 text-sm mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500' 
                     />
-                <div className='grid grid-cols-3 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {filteredProducts.map((product) =>{
                         const category = categories.find(c => c.id === product.category_id);
                         return(
