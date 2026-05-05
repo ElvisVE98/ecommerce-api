@@ -14,6 +14,7 @@ import {
  } from "react-icons/si";
  import { FaNodeJs } from "react-icons/fa";
  import { FaCheck } from "react-icons/fa";
+ import { FaArrowRight } from "react-icons/fa";
 
 
 const AboutPage = () => {
@@ -23,6 +24,12 @@ const AboutPage = () => {
   const tituloRef = useRef(null); {/*Referencia para el titulo (h1), para animarlo con GSAP */}
   const descripcionRef = useRef(null); {/*Referencia para la descripcion (p), para animarla con GSAP */}
   const botonRef = useRef(null); {/*Referencia para el boton (Link), para animarlo con GSAP */}
+
+  {/*Referencias para los contadores*/ }
+  const contador1Ref = useRef<HTMLSpanElement>(null);
+  const contador2Ref = useRef<HTMLSpanElement>(null);
+  const contador3Ref = useRef<HTMLSpanElement>(null);
+  const contador4Ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     // Aquí irán las animaciones GSAP
@@ -76,6 +83,48 @@ const AboutPage = () => {
 
     const techSection = document.querySelector('.tech-section');
     if(techSection) observar.observe(techSection);
+
+
+    const observarContador = new IntersectionObserver((entires) =>{
+      entires.forEach(entry =>{
+        if(entry.isIntersecting) {
+          gsap.to(contador1Ref.current, {
+            innerHTML : 8,
+            duration: 2,
+            ease: "power2.inOut",
+            snap: {innerHTML:1},
+          });
+
+            gsap.to(contador2Ref.current, {
+            innerHTML : 5,
+            duration: 2,
+            ease: "power2.inOut",
+            snap: {innerHTML:1},
+            delay:0.2,
+          });
+
+            gsap.to(contador3Ref.current, {
+            innerHTML : 3,
+            duration: 2,
+            ease: "power2.inOut",
+            snap: {innerHTML:1},
+            delay:0.4,
+          });
+
+            gsap.to(contador4Ref.current, {
+            innerHTML : 15,
+            duration: 2,
+            ease: "power2.inOut",
+            snap: {innerHTML:1},
+            delay:0.6,
+          });
+
+          observarContador.disconnect(); // para que no se repita
+        }
+      })
+    })
+    const contadorSection = document.querySelector('.contador-section');
+    if(contadorSection) observarContador.observe(contadorSection);
   }, []);
 
 
@@ -83,12 +132,11 @@ const AboutPage = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-
         <section className='py-32 bg-linear-to-br from-slate-900 via-blue-800 to-slate-800'>
 
           <div className='max-w-4xl mx-auto text-center'>
             <p ref={subtituloRef} className='text-blue-300 text-sm uppercase tracking-widest mb-4 opacity-0'>Proyecto de Aprendizaje Fullstack</p>
-          <h1 ref={tituloRef} className='text-5xl font-bold bg-linear-to-r from-white via-blue-200 to-slate-300 bg-clip-text text-transparent opacity-0'>Mercado Local</h1>
+          <h1 ref={tituloRef} className='text-5xl font-bold bg-linear-to-r from-white via-blue-100 to-slate-00 bg-clip-text text-transparent opacity-0'>Mercado Local</h1>
           <p ref={descripcionRef} className='mt-6 text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto opacity-0'>E-commerce moderno construido con React, Node.js, TypeScript y Supabase.Un proyecto para aprender y dominar el desarrollo fullstack.</p>
           <div className='mt-8'>
             <Link to="/catalog" ref={botonRef} className='bg-blue-600 text-white px-8 py-3 rounded-full font-semibold opacity-0 hover:bg-blue-500 transition'>
@@ -96,6 +144,10 @@ const AboutPage = () => {
           </div>
           </div>
         </section>
+
+
+
+
 
 
         <section className='py-20 bg-white'>
@@ -150,6 +202,9 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
+
+
+
 
 
 
@@ -208,38 +263,71 @@ const AboutPage = () => {
 
 
 
+
+
+
         <section className='py-20 bg-linear-to-br from-blue-800 to-purple-950'>
           <div className='text-center mb-12 mx-auto max-w-4xl'>
-            <h2 className='uppercase'>Estadisticas</h2>
+            <h2 className='uppercase text-white text-3xl font-bold'>Estadisticas</h2>
+            <p className='mt-4 text-slate-400 text-sm'>El proyecto en números</p>
           </div>
 
-          <div className='grid grid-cols-4 mx-auto max-w-4xl gap-8 px-8'>
+          <div className='contador-section grid grid-cols-4 mx-auto max-w-4xl gap-8 px-8'>
             
             
             <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
-              <span className='text-white font-bold mb-2 text-4xl'>8</span>
+              <span ref={contador1Ref} className='text-white font-bold mb-2 text-4xl'>0</span>
               <p className='text-center text-white text-sm'>Endpoints API</p>              
             </div>
 
             <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
-              <span className='text-white font-bold mb-2 text-4xl'>5</span>
+              <span ref={contador2Ref} className='text-white font-bold mb-2 text-4xl'>0</span>
               <p className='text-center text-white text-sm'>Tablas en BD</p>              
             </div>
 
             <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
-              <span className='text-white font-bold mb-2 text-4xl'>3</span>
+              <span ref={contador3Ref} className='text-white font-bold mb-2 text-4xl'>0</span>
               <p className='text-center text-white text-sm'>Fases del Proyecto</p>              
             </div>
 
             <div className='flex flex-col items-center bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300 cursor-pointer'>
-              <span className='text-white font-bold mb-2 text-4xl'>15+</span>
+              <span ref={contador4Ref} className='text-white font-bold mb-2 text-4xl'>0</span>
               <p className='text-center text-white text-sm'>Productos</p>              
             </div>
+          </div>
+        </section>
 
 
 
 
 
+        <section className='bg-white py-20'>
+          <div className='text-center mb-12 mx-auto max-w-4xl'>
+            <h2 className='uppercase font-bold text-3xl'>Lo que viene</h2>
+            <p className='text-slate-600 text-sm mt-2'>Este proyecto esta en constante evolución</p>
+          </div>
+
+          <div className='max-w-xl mx-auto flex flex-col gap-4'>
+
+            <div className='flex items-center gap-3 p-4 rounded-xl bg-slate-200 border border-slate-100'>
+              <FaArrowRight className='text-blue-500 shrink-0'> </FaArrowRight>
+              <p className='text-slate-700 text-sm'>Panel de administración para gestionar productos y pedidos</p>
+            </div>
+
+            <div className='flex items-center gap-3 p-4 rounded-xl bg-slate-200 border border-slate-100'>
+              <FaArrowRight className='text-blue-500 shrink-0'> </FaArrowRight>
+              <p className='text-slate-700 text-sm'>Integración con Transbank para pagos reales</p>
+            </div>
+
+            <div className='flex items-center gap-3 p-4 rounded-xl bg-slate-200 border border-slate-100'>
+              <FaArrowRight className='text-blue-500 shrink-0'> </FaArrowRight>
+              <p className='text-slate-700 text-sm'>Sistema de roles — admin y cliente</p>
+            </div>
+
+            <div className='flex items-center gap-3 p-4 rounded-xl bg-slate-200 border border-slate-100'>
+              <FaArrowRight className='text-blue-500 shrink-0'> </FaArrowRight>
+              <p className='text-slate-700 text-sm'>Notificaciones por email al confirmar pedidos</p>
+            </div>
           </div>
         </section>
 
