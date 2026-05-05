@@ -40,14 +40,26 @@ const LoginPage = () =>{
     return(
         //console.log('email:',email,'password:',password), // esto es para verificar que los valores de email y password se están actualizando correctamente a medida que el usuario escribe en los campos de entrada.
         
-        <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center">
+        <div className="min-h-screen  flex items-center justify-center"
+        style={{
+        background: 'linear-gradient(135deg,#051937,#004d7a,#008793,#00bf72)',
+        backgroundSize: '600% 300%',
+        animation: 'gradientMove 8s ease infinite',
+        }}>
             <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden">
 
-
                  {/* Panel izquierdo */}
-                <div className="w-1/2 bg-slate-900 p-10 flex items-end min-h-80">
-                    <div>
-                        <h2 className="text-white text-3xl font-bold mb-2">Mercado Local</h2>
+                <div className="w-1/2 flex items-center min-h-80"
+                style={{
+                    background: 'linear-gradient(135deg, #000046,#1CB5E0)',
+                    backgroundSize:'300% 300%',
+                    animation:'gradientMove 10s ease infinite',
+                    display:'flex',
+                    alignItems:'center',
+                    padding:'40px',
+                }}>
+                    <div >
+                        <h2 className="text-white text-3xl font-bold mb-2 text-center">Mercado Local</h2>
                         <p className="text-slate-300 text-sm">Curaduria experta para un estilo de vida consciente.</p>                
                     </div>
                 </div>

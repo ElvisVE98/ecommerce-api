@@ -9,6 +9,12 @@ export interface Order {
 
 export interface CreateOrderDto {
   user_id: string;
+  total:number;
+  items:{
+    product_id:string;
+    quantity:number;
+    unit_price:number;
+  }[]
 }
 
 export interface UpdateOrderDto {

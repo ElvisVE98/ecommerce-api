@@ -2,15 +2,20 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/FooterPage";
 import { useCart } from "../hooks/UseCart";
 import { useNavigate} from "react-router-dom";
+import { createOrder } from "../services/order.service";
+import { useState } from "react";
+import type { CreateOrderDto } from "../types/order.type";
 
 const CartPage = () =>{
 
-    const {items,totalPrice,removeItem,updateQuantity} = useCart();
+    const {items,totalPrice,removeItem,updateQuantity,clearCart} = useCart();
     const navigate = useNavigate();
+    const [procesando,setProcesando] = useState(false);
+    const [showModal,setShowModal] = useState(false);
 
 
     //Carrito de compras vacio
-    if(items.length === 0){
+    if(items.length === 0 && !showModal){
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
@@ -35,6 +40,35 @@ const CartPage = () =>{
       </div>
     );
   }
+
+
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+  const handlePago = async () => {
+  setProcesando(true);
+  
+  try {
+    // Preparamos los datos de la orden
+    const orderData: CreateOrderDto = {
+      user_id: user.id,
+      total: Number(totalPrice),
+      items: items.map(item => ({
+        product_id: item.product.id,
+        quantity: item.quantity,
+        unit_price: Number(item.product.price),
+      })),
+    };
+    // Enviamos a la API
+    await createOrder(orderData);
+    // Si funcionó → vaciamos el carrito
+    setShowModal(true);
+    clearCart();   
+  } catch (error) {
+    console.error('Error al crear la orden:', error);
+  } finally {
+    setProcesando(false);
+  }
+};
 
 
 
@@ -148,8 +182,11 @@ const CartPage = () =>{
             </div>
 
             {/* Botón de finalizar compra */}
-            <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition mb-3">
-                Proceder al pago
+            <button 
+            onClick={handlePago}
+            disabled={procesando}
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition mb-3">
+                {procesando ? 'Procesando...' : 'Proceder al Pago'}
             </button>
 
             <button onClick={() => navigate ('/catalog')}
@@ -170,6 +207,34 @@ const CartPage = () =>{
 </div>         
     </main>
     <Footer />
+
+    {/*MODAL DE CONFIRMACION DE COMPRA */}
+
+    {showModal && (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center">
+          <p className="text-4xl mb-4">🎉</p>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">
+            ¡Compra realizada!
+          </h2>
+          <p className="text-slate-500 text-sm mb-6">
+            Tu orden fue procesada exitosamente.
+          </p>
+          <button
+            onClick={() => {
+              setShowModal(false);
+              navigate('/orders');
+            }}
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+          >
+            Ver mis pedidos
+          </button>
+        </div>
+      </div>
+    )}
+
+
+
     </div>  
   );
 };

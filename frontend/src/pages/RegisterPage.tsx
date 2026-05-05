@@ -37,7 +37,12 @@ const RegisterPage = () =>{
 
     
 
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center">
+    <div className="min-h-screen  flex items-center justify-center"
+        style={{
+        background: 'linear-gradient(135deg,#051937,#004d7a,#008793,#00bf72)',
+        backgroundSize: '600% 300%',
+        animation: 'gradientMove 8s ease infinite',
+        }}>
     <div className="bg-white rounded-2xl shadow-lg w-full max-w-4xl flex overflow-hidden">
 
 
@@ -96,7 +101,15 @@ const RegisterPage = () =>{
          </div>
 
         {/* Panel derecho */}
-    <div className="w-1/2 bg-slate-900 p-10 flex items-end min-h-80">
+    <div className="w-1/2 p-10 flex items-center  min-h-80"
+                    style={{
+                    background: 'linear-gradient(135deg, #000046,#1CB5E0)',
+                    backgroundSize:'300% 300%',
+                    animation:'gradientMove 10s ease infinite',
+                    display:'flex',
+                    alignItems:'center',
+                    padding:'40px',
+                }}>
         <div>
         <h2 className="text-white text-3xl font-bold mb-2">únete a la nueva era del comercio Local</h2>
         <p className="text-slate-300 text-sm">Descubre productos seleccionados por expertos y apoya el talento local en una plataforma diseñada para la inspiración</p>

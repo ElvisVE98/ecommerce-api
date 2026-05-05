@@ -3,8 +3,15 @@ import {z} from 'zod';
 
 
 export const createOrderSchema = z.object({
-    user_id: z.string()
+  user_id: z.string()
     .uuid('el id del usuario debe ser un uuid valido'),
+  total: z.number()
+    .positive('el total debe ser un número positivo'),
+  items: z.array(z.object({
+    product_id: z.string().uuid('el id del producto debe ser un uuid valido'),
+    quantity: z.number().int().positive('la cantidad debe ser mayor a 0'),
+    unit_price: z.number().positive('el precio debe ser mayor a 0'),
+  })).min(1, 'debe haber al menos un producto'),
 });
 
 export const updateOrderSchema = z.object({

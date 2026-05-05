@@ -23,7 +23,7 @@ const Footer = () =>{
                 <ul className="flex flex-col gap-2">
                     <li><Link to="/catalog" className="text-slate-300 text-sm hover:text-white transition">Catálogo</Link></li>
                     <li><Link to="/about" className="text-slate-300 text-sm hover:text-white transition">Sobre Nosotros</Link></li>
-                    <li><Link to="/contact" className="text-slate-300 text-sm hover:text-white transition">Contacto</Link></li>
+                    <li><Link to="/orders" className="text-slate-300 text-sm hover:text-white transition">Mis pedidos</Link></li>
                 </ul>
              </div>
 

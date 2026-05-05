@@ -2,13 +2,37 @@ import { supabase } from '../config/supabase';
 import { Order, CreateOrderDto, UpdateOrderDto, OrderItem, CreateOrderItemDto } from '../types/orders.types';
 
 export const createOrder = async (order: CreateOrderDto): Promise<Order> => {
+  console.log('datos recibidos:',order);
   const { data, error } = await supabase
     .from('orders')
-    .insert({ ...order, status: 'pending', total: 0 })
+    .insert({ 
+      user_id:order.user_id,
+      status:'pending',
+      total:order.total })
     .select()
     .single();
 
-  if (error) throw { statusCode: 400, message: error.message };
+  if (error) {
+    console.log('Error en orders:',error)
+    throw { statusCode: 400, message: error.message };
+  }
+
+  const OrderItems = order.items.map(item => ({
+    order_id:data.id,
+    product_id:item.product_id,
+    quantity: item.quantity,
+    unit_price:item.unit_price,
+  }));
+
+  const {error: itemsError} = await supabase
+  .from('order_items')
+  .insert(OrderItems);
+
+  if(itemsError) {
+    console.log('error en order_items:',itemsError);
+   throw {statusCode: 400, message: itemsError.message}
+  }
+
   return data as Order;
 };
 

@@ -112,7 +112,7 @@ const AboutPage = () => {
           });
 
             gsap.to(contador4Ref.current, {
-            innerHTML : 15,
+            innerHTML : 8,
             duration: 2,
             ease: "power2.inOut",
             snap: {innerHTML:1},
